@@ -20,7 +20,12 @@ namespace MovieRenter.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("UserDbContextConnection")));
 
-                services.AddDefaultIdentity<MovieRenterUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<MovieRenterUser>(options => {
+                    options.SignIn.RequireConfirmedAccount = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                })
                     .AddEntityFrameworkStores<UserDbContext>();
             });
         }
