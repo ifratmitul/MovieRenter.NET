@@ -18,4 +18,5 @@ namespace MovieRenter.Models
         public decimal Price { get; set; }
 
     }
+   
 }

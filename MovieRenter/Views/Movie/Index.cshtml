@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<MovieRenter.Models.Movie>
+@{ 
+    ViewData["Title"] = "Index";
+}
+
+
+    <div class="container">
+        @if (true)
+        {
+            @foreach (var item in Model) { 
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="~/images/image1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(m => item.Title)</h5>
+                    <p class="card-text">@Html.DisplayFor(m => item.ReleaseDate)</p>
+                    <a  asp-action="" class="btn btn-info">See Details</a>
+                    <a  asp-action="" class="btn btn-primary">Rent</a>
+                </div>
+            </div>
+            }
+        }
+        else
+        {
+            <h3>No Movies Available</h3>
+        }
+
+
+
+
+
+    </div>
